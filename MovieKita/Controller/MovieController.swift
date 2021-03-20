@@ -8,17 +8,39 @@
 
 import UIKit
 
-class MovieViewController: UIViewController {
+class MovieViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var picker: UIPickerView!
+    
     
     private var viewModel = MovieViewModel()
+    
+    var pickerData = [["Top Rated", "Now Playing", "Popular", "Upcoming"]]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        self.picker.delegate = self
+        self.picker.dataSource = self
+        
         loadTopRatedMoviesData()
+    }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return pickerData.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return pickerData[component].count
+    }
+
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return pickerData[component][row]
+    }
+    
+    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
     }
     
     private func loadTopRatedMoviesData() {
