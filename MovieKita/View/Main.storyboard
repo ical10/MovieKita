@@ -139,6 +139,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="categoryHeaderLabel" destination="kYB-Jp-YV9" id="Qph-q9-oHX"/>
                         <outlet property="picker" destination="cRv-Qn-RoH" id="8kT-qj-iVm"/>
                         <outlet property="tableView" destination="rde-tV-Cta" id="zQv-Io-8la"/>
                     </connections>

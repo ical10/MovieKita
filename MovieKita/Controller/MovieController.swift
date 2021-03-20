@@ -12,11 +12,10 @@ class MovieViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var picker: UIPickerView!
+    @IBOutlet weak var categoryHeaderLabel: UILabel!
     
     
     private var viewModel = MovieViewModel()
-    
-
     
     var pickerData:[String] = ["Top Rated", "Now Playing", "Popular", "Upcoming"]
     
@@ -46,10 +45,24 @@ class MovieViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         return pickerData[row]
     }
     
+    var pickerString:String = ""
+    
     // when an element is selected, store in a string
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        let pickerString = pickerData[row]
-        print(">>>>>", pickerString)
+        
+        let selectedCategory:String = pickerData[row]
+        
+        if selectedCategory == "Top Rated" {
+            categoryHeaderLabel.text = "Top Rated Movie"
+        } else if selectedCategory == "Now Playing" {
+            categoryHeaderLabel.text = "Now Playing"
+        } else if selectedCategory == "Popular" {
+            categoryHeaderLabel.text = "Popular Movies"
+        } else {
+            categoryHeaderLabel.text = "Upcoming Movies"
+        }
+//        pickerString = pickerData[row]
+//        print(">>>>>", pickerString)
     }
 
     private func loadTopRatedMoviesData() {
@@ -58,6 +71,8 @@ class MovieViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             self?.tableView.reloadData()
         }
     }
+    
+    
 }
 
 // TableView setting
