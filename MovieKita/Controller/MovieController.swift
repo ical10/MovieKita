@@ -16,7 +16,9 @@ class MovieViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     
     private var viewModel = MovieViewModel()
     
-    var pickerData = [["Top Rated", "Now Playing", "Popular", "Upcoming"]]
+
+    
+    var pickerData:[String] = ["Top Rated", "Now Playing", "Popular", "Upcoming"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,23 +28,30 @@ class MovieViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         self.picker.dataSource = self
         
         loadTopRatedMoviesData()
+        
     }
     
+    // Number of rows or number of components
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return pickerData.count
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return pickerData[component].count
+        return 1
     }
 
+    // number of rows that we have to set
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return pickerData.count
+    }
+
+    // set title in pickerView according to the elements
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return pickerData[component][row]
+        return pickerData[row]
     }
     
-    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+    // when an element is selected, store in a string
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        let pickerString = pickerData[row]
+        print(">>>>>", pickerString)
     }
-    
+
     private func loadTopRatedMoviesData() {
         viewModel.getTopRatedMoviesData { [weak self] in
             self?.tableView.dataSource = self
