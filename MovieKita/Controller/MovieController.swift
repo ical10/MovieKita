@@ -27,7 +27,6 @@ class MovieViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         self.picker.dataSource = self
         
         loadTopRatedMoviesData()
-        
     }
     
     // Number of rows or number of components
@@ -45,13 +44,32 @@ class MovieViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         return pickerData[row]
     }
     
-    var pickerString:String = ""
+    var selectedCategory:String = "Top Rated"
+    {
+        // property observers to watch changes of selectedCategory
+        didSet
+        {
+            if selectedCategory == "Top Rated"
+            {
+                loadTopRatedMoviesData()
+            }
+            else if selectedCategory == "Popular"
+            {
+                loadPopularMoviesData()
+            }
+            else if selectedCategory == "Now Playing"
+            {
+                loadNowPlayingMoviesData()
+            }
+        }
+    }
     
     // when an element is selected, store in a string
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
-        let selectedCategory:String = pickerData[row]
+        selectedCategory = pickerData[row]
         
+        // make categoryHeaderLabel responsive
         if selectedCategory == "Top Rated" {
             categoryHeaderLabel.text = "Top Rated Movie"
         } else if selectedCategory == "Now Playing" {
@@ -61,10 +79,9 @@ class MovieViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         } else {
             categoryHeaderLabel.text = "Upcoming Movies"
         }
-//        pickerString = pickerData[row]
-//        print(">>>>>", pickerString)
     }
 
+    // MARK: - Call a fetch method and update the tableView
     private func loadTopRatedMoviesData() {
         viewModel.getTopRatedMoviesData { [weak self] in
             self?.tableView.dataSource = self
@@ -72,7 +89,19 @@ class MovieViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         }
     }
     
+    private func loadPopularMoviesData() {
+        viewModel.getPopularMoviesData { [weak self] in
+            self?.tableView.dataSource = self
+            self?.tableView.reloadData()
+        }
+    }
     
+    private func loadNowPlayingMoviesData() {
+        viewModel.getNowPlayingMoviesData { [weak self] in
+            self?.tableView.dataSource = self
+            self?.tableView.reloadData()
+        }
+    }
 }
 
 // TableView setting

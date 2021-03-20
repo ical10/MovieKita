@@ -10,7 +10,7 @@ import Foundation
 
 class MovieViewModel {
     private var movieApi = MovieApi()
-    private var topRatedMovies = [Movie]()
+    private var moviesData = [Movie]()
     
     func getTopRatedMoviesData(completion: @escaping () -> ()) {
         
@@ -18,24 +18,50 @@ class MovieViewModel {
             
             switch result {
             case .success (let list):
-                self?.topRatedMovies = list.movies
+                self?.moviesData = list.movies
                 completion()
             case .failure(let error):
                 print("Error while processing JSON data: \(error)")
             }
-            
         }
+    }
+    
+    func getPopularMoviesData(completion: @escaping () -> ()) {
         
+        movieApi.fetchPopularMoviesData { [weak self] (result) in
+            
+            switch result {
+            case .success (let list):
+                self?.moviesData = list.movies
+                completion()
+            case .failure(let error):
+                print("Error while processing JSON data: \(error)")
+            }
+        }
+    }
+    
+    func getNowPlayingMoviesData(completion: @escaping () -> ()) {
+        
+        movieApi.fetchNowPlayingMoviesData { [weak self] (result) in
+            
+            switch result {
+            case .success (let list):
+                self?.moviesData = list.movies
+                completion()
+            case .failure(let error):
+                print("Error while processing JSON data: \(error)")
+            }
+        }
     }
     
     func numberOfRowsEachSection (section: Int) -> Int {
-        if topRatedMovies.count != 0 {
-            return topRatedMovies.count
+        if moviesData.count != 0 {
+            return moviesData.count
         }
         return 0
     }
     
     func cellForRowAt (indexPath: IndexPath) -> Movie {
-        return topRatedMovies[indexPath.row]
+        return moviesData[indexPath.row]
     }
 }
