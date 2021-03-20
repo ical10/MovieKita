@@ -63,16 +63,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Release date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qn4-7v-UIG">
-                                                    <rect key="frame" x="108" y="42" width="235" height="17"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="17" id="Kjd-iQ-iSZ"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
-                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Synopsis" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U7z-M7-lsu">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Synopsis" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U7z-M7-lsu">
                                                     <rect key="frame" x="108" y="67" width="286" height="71"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="71" id="nTm-x5-vKJ"/>
@@ -81,10 +72,19 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="0.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jd9-Ab-SP2">
-                                                    <rect key="frame" x="369" y="47" width="25" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jd9-Ab-SP2">
+                                                    <rect key="frame" x="369" y="46" width="25" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
                                                     <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Release date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qn4-7v-UIG">
+                                                    <rect key="frame" x="108" y="42" width="235" height="17"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="17" id="Kjd-iQ-iSZ"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -95,8 +95,7 @@
                                                 <constraint firstItem="qn4-7v-UIG" firstAttribute="top" secondItem="hwp-Eb-u8s" secondAttribute="bottom" constant="5" id="IYy-h2-0U0"/>
                                                 <constraint firstItem="efa-iu-Y2P" firstAttribute="leading" secondItem="hwp-Eb-u8s" secondAttribute="trailing" constant="21" id="JOb-Lv-Idt"/>
                                                 <constraint firstItem="qn4-7v-UIG" firstAttribute="leading" secondItem="t8r-vR-vIa" secondAttribute="trailing" constant="8" id="Lb2-6Y-8wQ"/>
-                                                <constraint firstItem="jd9-Ab-SP2" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="qn4-7v-UIG" secondAttribute="trailing" constant="8" symbolic="YES" id="Ula-Rz-1R4"/>
-                                                <constraint firstAttribute="trailing" secondItem="jd9-Ab-SP2" secondAttribute="trailing" constant="10" id="V3v-EK-aFK"/>
+                                                <constraint firstAttribute="trailing" secondItem="jd9-Ab-SP2" secondAttribute="trailing" constant="20" symbolic="YES" id="V3v-EK-aFK"/>
                                                 <constraint firstAttribute="bottom" secondItem="U7z-M7-lsu" secondAttribute="bottom" constant="12" id="etp-Fl-qGA"/>
                                                 <constraint firstItem="t8r-vR-vIa" firstAttribute="leading" secondItem="alJ-OR-ei9" secondAttribute="leading" constant="20" id="f1c-gk-At8"/>
                                                 <constraint firstItem="hwp-Eb-u8s" firstAttribute="top" secondItem="alJ-OR-ei9" secondAttribute="top" constant="13" id="f84-gj-7m5"/>
@@ -108,12 +107,13 @@
                                                 <constraint firstItem="t8r-vR-vIa" firstAttribute="top" secondItem="alJ-OR-ei9" secondAttribute="top" constant="13" id="xSa-5i-3Ox"/>
                                                 <constraint firstItem="efa-iu-Y2P" firstAttribute="top" secondItem="alJ-OR-ei9" secondAttribute="top" constant="13" id="y9D-zu-Sdp"/>
                                                 <constraint firstItem="U7z-M7-lsu" firstAttribute="top" secondItem="qn4-7v-UIG" secondAttribute="bottom" constant="8" id="yEn-in-Jrp"/>
+                                                <constraint firstItem="jd9-Ab-SP2" firstAttribute="width" secondItem="efa-iu-Y2P" secondAttribute="width" multiplier="0.833333" id="yiH-Ap-rmN"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="movieFavorite" destination="efa-iu-Y2P" id="IJZ-is-te4"/>
                                             <outlet property="moviePoster" destination="t8r-vR-vIa" id="uAa-VY-Kdi"/>
-                                            <outlet property="movieRating" destination="jd9-Ab-SP2" id="5TF-7B-6T8"/>
+                                            <outlet property="movieRating" destination="jd9-Ab-SP2" id="uJN-pg-vDm"/>
                                             <outlet property="movieReleasedDate" destination="qn4-7v-UIG" id="BzY-MP-Pa9"/>
                                             <outlet property="movieSynopsis" destination="U7z-M7-lsu" id="tBT-rl-Kqt"/>
                                             <outlet property="movieTitle" destination="hwp-Eb-u8s" id="OY5-gI-r9C"/>
