@@ -152,4 +152,51 @@ class MovieApi {
         }
         dataTask?.resume()
     }
+    
+    func fetchMovieData(id: Int, completion: @escaping (Result<MovieData, Error>) -> Void) {
+        
+        let movieURL =
+        "https://api.themoviedb.org/3/movie/\(id)?api_key=b80057427a3fc4cac650805ce9860939&append_to_response=videos,credits"
+        
+        guard let url = URL(string: movieURL) else {
+            return
+        }
+        
+        dataTask = URLSession.shared.dataTask(with: url) { (data, response, error) in
+            
+            // Error handling
+            if let error = error {
+                completion(.failure(error))
+                print("DataTask error: \(error.localizedDescription)")
+                return
+            }
+            
+            guard let response = response as? HTTPURLResponse else {
+                // Empty response handling
+                print("response empty")
+                return
+            }
+            
+            print("Response stat code: \(response.statusCode)")
+            
+            guard let data = data else {
+                // empty data handling
+                print("Empty data")
+                return
+            }
+            
+            do {
+                // data parsing
+                let decoder = JSONDecoder()
+                let dataFromJSON = try decoder.decode(MovieData.self, from: data)
+                
+                DispatchQueue.main.async {
+                    completion(.success(dataFromJSON))
+                }
+            } catch let error {
+                completion (.failure(error))
+            }
+        }
+        dataTask?.resume()
+    }
 }

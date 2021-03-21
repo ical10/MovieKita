@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Top Rated Movies" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kYB-Jp-YV9">
-                                <rect key="frame" x="0.0" y="44" width="414" height="60"/>
+                                <rect key="frame" x="0.0" y="46" width="414" height="60"/>
                                 <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="xa4-jN-AR7"/>
@@ -27,10 +27,10 @@
                                 <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rde-tV-Cta">
-                                <rect key="frame" x="0.0" y="102" width="414" height="679"/>
+                                <rect key="frame" x="0.0" y="161" width="414" height="620"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="679" id="LJR-RB-y4G"/>
+                                    <constraint firstAttribute="height" constant="620" id="LJR-RB-y4G"/>
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="150" id="Kk8-px-L0d" customClass="MovieTableViewCell" customModule="MovieKita" customModuleProvider="target">
@@ -117,6 +117,7 @@
                                             <outlet property="movieReleasedDate" destination="qn4-7v-UIG" id="BzY-MP-Pa9"/>
                                             <outlet property="movieSynopsis" destination="U7z-M7-lsu" id="tBT-rl-Kqt"/>
                                             <outlet property="movieTitle" destination="hwp-Eb-u8s" id="OY5-gI-r9C"/>
+                                            <segue destination="LdX-Ix-m8K" kind="show" id="cO1-9P-jzz"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -132,12 +133,12 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="rde-tV-Cta" secondAttribute="trailing" id="7W9-AU-wAu"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="kYB-Jp-YV9" secondAttribute="trailing" id="MTO-3S-W8i"/>
                             <constraint firstItem="rde-tV-Cta" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Mzv-r2-hor"/>
-                            <constraint firstItem="rde-tV-Cta" firstAttribute="top" secondItem="kYB-Jp-YV9" secondAttribute="bottom" constant="-2" id="Ug2-Zg-Tfw"/>
-                            <constraint firstItem="kYB-Jp-YV9" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="waC-JS-Bky"/>
+                            <constraint firstItem="kYB-Jp-YV9" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="2" id="th7-Rl-tCa"/>
                             <constraint firstItem="kYB-Jp-YV9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="wsK-5u-i7i"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" id="aAc-8g-unN"/>
                     <connections>
                         <outlet property="categoryHeaderLabel" destination="kYB-Jp-YV9" id="Qph-q9-oHX"/>
                         <outlet property="picker" destination="cRv-Qn-RoH" id="8kT-qj-iVm"/>
@@ -146,7 +147,17 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="131.8840579710145" y="89.732142857142847"/>
+            <point key="canvasLocation" x="1042.0289855072465" y="89.732142857142847"/>
+        </scene>
+        <!--MovieDetailView-->
+        <scene sceneID="n6N-ZG-43s">
+            <objects>
+                <viewControllerPlaceholder storyboardName="MovieDetailView" id="LdX-Ix-m8K" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="3Pf-an-UU2"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="630-1w-Tw8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1794" y="-43"/>
         </scene>
     </scenes>
     <resources>

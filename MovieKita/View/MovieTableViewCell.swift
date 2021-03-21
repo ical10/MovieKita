@@ -21,7 +21,7 @@ class MovieTableViewCell: UITableViewCell {
     private var stringURL: String = ""
     
 //    Set movies values
-    func setCellWithValues(_ movie:Movie) {
+    func setCellWithValues(_ movie:MovieData) {
         updateUI(title: movie.title, releaseDate: movie.releaseDate, rating:  movie.rate, synopsis: movie.synopsis, posterImg: movie.posterImg)
     }
     

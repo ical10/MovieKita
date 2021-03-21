@@ -10,7 +10,8 @@ import Foundation
 
 class MovieViewModel {
     private var movieApi = MovieApi()
-    private var moviesData = [Movie]()
+    private var moviesData = [MovieData]()
+//    private var movieData = MovieData()
     
     func getTopRatedMoviesData(completion: @escaping () -> ()) {
         
@@ -54,6 +55,21 @@ class MovieViewModel {
         }
     }
     
+    func getMovieData(id: Int, completion: @escaping () -> ()) {
+        
+        movieApi.fetchMovieData(id: id) { [weak self] (result) in
+            
+            switch result {
+            case .success (let list):
+                print("result from fetchMovieData: ", result)
+//                self?.movieData = list.movies
+                completion()
+            case .failure(let error):
+                print("Error while processing JSON data: \(error)")
+            }
+        }
+    }
+    
     func numberOfRowsEachSection (section: Int) -> Int {
         if moviesData.count != 0 {
             return moviesData.count
@@ -61,7 +77,7 @@ class MovieViewModel {
         return 0
     }
     
-    func cellForRowAt (indexPath: IndexPath) -> Movie {
+    func cellForRowAt (indexPath: IndexPath) -> MovieData {
         return moviesData[indexPath.row]
     }
 }

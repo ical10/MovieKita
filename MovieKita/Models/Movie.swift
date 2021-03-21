@@ -9,14 +9,14 @@
 import Foundation
 
 struct MoviesData: Decodable {
-    let movies: [Movie]
+    let movies: [MovieData]
     
     private enum CodingKeys: String, CodingKey {
         case movies = "results"
     }
 }
 
-struct Movie: Decodable {
+struct MovieData: Decodable {
     let title: String?
     let releaseDate: String?
     let rate: Double?

@@ -29,6 +29,11 @@ class MovieViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         loadTopRatedMoviesData()
     }
     
+    @IBAction func unwindToMovieViewController(_ unwindSegue: UIStoryboardSegue) {
+        // We can just leave this blank to unwind from MovieDetailViewController
+        // Use data from the view controller which initiated the unwind segue
+    }
+    
     // Number of rows or number of components
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -119,6 +124,14 @@ extension MovieViewController: UITableViewDataSource {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        performSegue(withIdentifier: "MovieDetail", sender: self)
+    }
     
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
 }
 

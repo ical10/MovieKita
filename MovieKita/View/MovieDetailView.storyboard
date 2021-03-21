@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6p8-NR-EBq">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Movie Detail View Controller-->
+        <scene sceneID="wrL-by-BQ9">
+            <objects>
+                <viewController id="6p8-NR-EBq" customClass="MovieDetailViewController" customModule="MovieKita" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="krE-CH-LiU">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Detail" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o5v-QC-2F0">
+                                <rect key="frame" x="0.0" y="-1" width="414" height="150"/>
+                                <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="iqb-6Z-Ege"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="31"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hyf-r3-mP4">
+                                <rect key="frame" x="188" y="107" width="38" height="30"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="15"/>
+                                <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Back"/>
+                                <connections>
+                                    <segue destination="l8w-A6-WmD" kind="unwind" unwindAction="unwindToMovieViewController:" id="AeJ-Cw-qaF"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="o5v-QC-2F0" firstAttribute="centerX" secondItem="krE-CH-LiU" secondAttribute="centerX" id="1Ne-AP-FK2"/>
+                            <constraint firstItem="o5v-QC-2F0" firstAttribute="leading" secondItem="zJb-KB-S1l" secondAttribute="leading" id="FFW-6e-WEG"/>
+                            <constraint firstItem="o5v-QC-2F0" firstAttribute="top" secondItem="krE-CH-LiU" secondAttribute="topMargin" constant="-45" id="SuG-f8-E8C"/>
+                            <constraint firstItem="o5v-QC-2F0" firstAttribute="centerX" secondItem="hyf-r3-mP4" secondAttribute="centerX" id="g2f-qd-etU"/>
+                            <constraint firstItem="hyf-r3-mP4" firstAttribute="top" secondItem="o5v-QC-2F0" secondAttribute="bottom" constant="-42" id="sMR-Fz-xUR"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="zJb-KB-S1l"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="duj-4R-ghh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="l8w-A6-WmD" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="100.00000000000001" y="51.5625"/>
+        </scene>
+    </scenes>
+</document>
