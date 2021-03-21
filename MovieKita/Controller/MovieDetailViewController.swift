@@ -9,23 +9,40 @@
 import UIKit
 
 class MovieDetailViewController: UIViewController {
-
+    
+    @IBOutlet weak var detailTableView: UITableView!
+    
+    private var viewModel = MovieViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        title = "Movie Detail"
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    // MARK: - Call a fetch method and update the detailTableView
+    private func loadDetailMovieData() {
+        viewModel.getMovieData(id: <#T##Int#>) { [weak self] in
+            self?.detailTableView.dataSource = self
+            self?.detailTableView.reloadData()
+        }
     }
-    */
 
+}
+
+// TableView setting
+extension MovieDetailViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    }
+    
+    func detailTableView(_ detailTableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = detailTableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MovieDetailTableViewCell
+        
+        let movie = viewModel.cellForRowAt(indexPath: indexPath)
+        cell.setCellWithValues(movie)
+        
+        return cell
+    }
 }
