@@ -17,6 +17,8 @@ struct MoviesData: Decodable {
 }
 
 struct MovieData: Decodable {
+
+    let id: Int?
     let title: String?
     let releaseDate: String?
     let rate: Double?
@@ -24,6 +26,7 @@ struct MovieData: Decodable {
     let synopsis: String?
     
     private enum CodingKeys: String, CodingKey {
+        case id
         case title
         case synopsis = "overview"
         case releaseDate = "release_date"

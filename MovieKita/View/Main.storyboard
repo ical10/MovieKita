@@ -114,10 +114,10 @@
                                             <outlet property="movieFavorite" destination="efa-iu-Y2P" id="IJZ-is-te4"/>
                                             <outlet property="moviePoster" destination="t8r-vR-vIa" id="uAa-VY-Kdi"/>
                                             <outlet property="movieRating" destination="jd9-Ab-SP2" id="uJN-pg-vDm"/>
-                                            <outlet property="movieReleasedDate" destination="qn4-7v-UIG" id="BzY-MP-Pa9"/>
+                                            <outlet property="movieReleaseDate" destination="qn4-7v-UIG" id="RJL-cS-fFA"/>
                                             <outlet property="movieSynopsis" destination="U7z-M7-lsu" id="tBT-rl-Kqt"/>
                                             <outlet property="movieTitle" destination="hwp-Eb-u8s" id="OY5-gI-r9C"/>
-                                            <segue destination="LdX-Ix-m8K" kind="presentation" modalPresentationStyle="fullScreen" id="cO1-9P-jzz"/>
+                                            <segue destination="LdX-Ix-m8K" kind="presentation" identifier="movieDetailSegue" modalPresentationStyle="fullScreen" id="cO1-9P-jzz"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

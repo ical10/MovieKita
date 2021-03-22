@@ -36,7 +36,7 @@ class MovieDetailTableViewCell: UITableViewCell {
         self.movieSynopsis.text = synopsis
         
         guard let posterStringURL = posterImg else {return}
-        stringURL = "https://image.tmdb.org/t/p/w500" + posterStringURL
+        stringURL = "https://image.tmdb.org/t/p/w300" + posterStringURL
         
         guard let posterImgURL = URL(string: stringURL) else {
             self.moviePoster.image = UIImage(named: "noImg")
@@ -63,6 +63,7 @@ class MovieDetailTableViewCell: UITableViewCell {
             
             DispatchQueue.main.async {
                 if let image = UIImage(data: data) {
+                    print("the data: ", data)
                     self.moviePoster.image = image
                 }
             }

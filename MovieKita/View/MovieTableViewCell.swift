@@ -20,8 +20,12 @@ class MovieTableViewCell: UITableViewCell {
     
     private var stringURL: String = ""
     
+    var movieId: Int = 0
+    
 //    Set movies values
     func setCellWithValues(_ movie:MovieData) {
+        print("the clicked movieId", movie.id!)
+        self.movieId = movie.id!
         updateUI(title: movie.title, releaseDate: movie.releaseDate, rating:  movie.rate, synopsis: movie.synopsis, posterImg: movie.posterImg)
     }
     

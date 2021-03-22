@@ -14,14 +14,18 @@ class MovieDetailViewController: UIViewController {
     
     private var viewModel = MovieViewModel()
     
+    var movieId: Int = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        print("selected movieId: ", movieId)
+        loadDetailMovieData(id: movieId)
     }
     
     // MARK: - Call a fetch method and update the detailTableView
-    private func loadDetailMovieData() {
-        viewModel.getMovieData(id: 527774) { [weak self] in
+    private func loadDetailMovieData(id: Int) {
+        viewModel.getMovieData(id: id) { [weak self] in
             self?.detailTableView.dataSource = self
             self?.detailTableView.reloadData()
         }
@@ -34,13 +38,13 @@ extension MovieDetailViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.numberOfRowsEachSection(section: section)
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = detailTableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MovieDetailTableViewCell
-        
+        let detailCell = tableView.dequeueReusableCell(withIdentifier: "detailCell", for: indexPath) as! MovieDetailTableViewCell
+
         let movie = viewModel.cellForRowAt(indexPath: indexPath)
-        cell.setCellWithValues(movie)
-        
-        return cell
+        detailCell.setCellWithValues(movie)
+
+        return detailCell
     }
 }

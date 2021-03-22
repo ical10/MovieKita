@@ -16,6 +16,7 @@ class MovieViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     
     
     private var viewModel = MovieViewModel()
+    private var movieData = [MovieData]()
     
     var pickerData:[String] = ["Top Rated", "Now Playing", "Popular", "Upcoming"]
     
@@ -27,6 +28,23 @@ class MovieViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         self.picker.dataSource = self
         
         loadTopRatedMoviesData()
+    }
+    
+    // MARK: - STILL PROBLEMATIC!
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "movieDetailSegue",
+           let nextScene = segue.destination as? MovieDetailViewController ,
+            let indexPath = self.tableView.indexPathForSelectedRow {
+     
+            guard self.movieData.count > indexPath.row else {
+                   print("Index out of range")
+                   return
+               }
+            let selectedMovie =  self.movieData[indexPath.row]
+            print("selectedMovie", selectedMovie)
+            print("movieData: ", self.movieData)
+            nextScene.movieId = selectedMovie.id!
+        }
     }
     
     @IBAction func unwindToMovieViewController(_ unwindSegue: UIStoryboardSegue) {
@@ -91,6 +109,7 @@ class MovieViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         viewModel.getTopRatedMoviesData { [weak self] in
             self?.tableView.dataSource = self
             self?.tableView.reloadData()
+            
         }
     }
     
@@ -126,6 +145,7 @@ extension MovieViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+
         performSegue(withIdentifier: "MovieDetail", sender: self)
     }
     

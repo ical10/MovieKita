@@ -11,7 +11,7 @@ import Foundation
 class MovieViewModel {
     private var movieApi = MovieApi()
     private var moviesData = [MovieData]()
-//    private var movieData = MovieData()
+//    private var movieData = [MovieData]()
     
     func getTopRatedMoviesData(completion: @escaping () -> ()) {
         
@@ -61,8 +61,9 @@ class MovieViewModel {
             
             switch result {
             case .success (let list):
-                print("result from fetchMovieData: ", result)
-//                self?.movieData = list.movies
+//                print("this is the list: ", list.posterImg!)
+                self?.moviesData = [list]
+//                print(">>>", self?.moviesData)
                 completion()
             case .failure(let error):
                 print("Error while processing JSON data: \(error)")

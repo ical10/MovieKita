@@ -23,7 +23,7 @@
                                     <constraint firstAttribute="height" constant="620" id="7xe-s5-Vue"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cell" rowHeight="219" id="aQ8-ws-WSi" customClass="MovieDetailTableViewCell" customModule="MovieKita" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="detailCell" rowHeight="219" id="aQ8-ws-WSi" customClass="MovieDetailTableViewCell" customModule="MovieKita" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="219"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aQ8-ws-WSi" id="C16-Io-LTq">
@@ -97,7 +97,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="movieFavorite" destination="QPT-JF-u2c" id="iGn-1s-nIk"/>
-                                            <outlet property="moviePoster" destination="RFA-C8-vpk" id="pdb-GT-zEx"/>
+                                            <outlet property="moviePoster" destination="mZa-6B-bYx" id="9mP-Xh-6HV"/>
                                             <outlet property="movieRating" destination="3wn-03-hxJ" id="V5O-y1-2ms"/>
                                             <outlet property="movieReleaseDate" destination="9if-kn-pmB" id="vMA-zx-M8G"/>
                                             <outlet property="movieSynopsis" destination="QYj-or-Okz" id="FXX-Ly-Kjh"/>
